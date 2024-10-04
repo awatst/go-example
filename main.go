@@ -9,7 +9,6 @@ import (
 
 func main() {
 	id := uuid.New()
-
 	fmt.Print("main_test \n")
 	fmt.Printf("main_uuid: %s \n", id)
 	service.ExampleService()
