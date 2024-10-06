@@ -7,6 +7,20 @@ import (
 	"github.com/google/uuid"
 )
 
+type Student struct {
+	Name    string
+	Weight  int
+	Height  int
+	Grade   string
+	Address Address
+}
+
+type Address struct {
+	Street  string
+	City    string
+	ZipCode int
+}
+
 func main() {
 	id := uuid.New()
 	fmt.Print("main_test \n")
@@ -16,6 +30,7 @@ func main() {
 	fmt.Printf("main_swapString: a: %s, b: %s", a, b)
 	exampleSlice()
 	exampleMap()
+	exampleStruct()
 }
 
 func exampleSlice() {
@@ -60,5 +75,63 @@ func exampleMap() {
 	} else {
 		fmt.Println("Toyota key not exists")
 	}
+}
 
+func exampleStruct() {
+	var student Student
+	student.Name = "A"
+	student.Weight = 10
+	student.Height = 20
+	student.Grade = "A"
+	student.Address.Street = "aa1"
+	student.Address.City = "cc1"
+	student.Address.ZipCode = 1234
+
+	fmt.Println("Student: ", student)
+
+	var studentArray [3]Student
+	studentArray[0].Name = "AA"
+	studentArray[0].Weight = 100
+	studentArray[0].Height = 200
+	studentArray[0].Grade = "XX"
+	studentArray[0].Address.Street = "a1"
+	studentArray[0].Address.City = "c1"
+	studentArray[0].Address.ZipCode = 123
+
+	studentArray[1].Name = "BBB"
+	studentArray[1].Weight = 300
+	studentArray[1].Height = 400
+	studentArray[1].Grade = "YY"
+	studentArray[1].Address.Street = "a2"
+	studentArray[1].Address.City = "c2"
+	studentArray[1].Address.ZipCode = 456
+
+	studentArray[2].Name = "CCC"
+	studentArray[2].Weight = 500
+	studentArray[2].Height = 600
+	studentArray[2].Grade = "ZZ"
+	studentArray[2].Address.Street = "a2"
+	studentArray[2].Address.City = "c2"
+	studentArray[2].Address.ZipCode = 789
+
+	for i := 0; i < len(studentArray); i++ {
+		fmt.Println("Student no.", i+1)
+		fmt.Println("Name: ", studentArray[i].Name)
+		fmt.Println("Weight: ", studentArray[i].Weight)
+		fmt.Println("Height: ", studentArray[i].Height)
+		fmt.Println("Grade: ", studentArray[i].Grade)
+		fmt.Println("Street: ", studentArray[i].Address.Street)
+		fmt.Println("City: ", studentArray[i].Address.City)
+		fmt.Println("ZipCode: ", studentArray[i].Address.ZipCode)
+	}
+
+	studentMap := make(map[string]Student)
+	studentMap["std01"] = Student{Name: "Somchai", Height: 1, Weight: 2, Grade: "A"}
+	studentMap["std02"] = Student{Name: "Somsak", Height: 3, Weight: 4, Grade: "B"}
+	studentMap["std03"] = Student{Name: "Somsri", Height: 5, Weight: 6, Grade: "C"}
+	studentMap["std04"] = Student{Name: "Sompong", Height: 7, Weight: 8, Grade: "D"}
+
+	for key, val := range studentMap {
+		fmt.Printf("Id: %s, Name: %s, Height: %d, Weight: %d, Grade: %s \n", key, val.Name, val.Height, val.Weight, val.Grade)
+	}
 }
