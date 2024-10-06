@@ -47,6 +47,12 @@ func main() {
 	service.MakeSound(person)
 	service.TakeAWalk(dog)
 	service.TakeAWalk(person)
+
+	//pointer
+	//pointer is like Ref in oop
+	service.ExamplePointer()
+	emp := service.Employee{Name: "A", Salary: 100000}
+	service.GiveRise(&emp, 5000)
 }
 
 func exampleSlice() {
