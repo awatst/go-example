@@ -33,8 +33,20 @@ func main() {
 	exampleMap()
 	exampleStruct()
 
+	//method
 	studentFullName := Student{Name: "John", LastName: "Snow"}
 	fmt.Println("FullName: ", studentFullName.exampleMethod())
+
+	//interface
+	fmt.Println("Dog ", service.Dog.Speak(service.Dog{}))
+	fmt.Println("Person ", service.Person.Speak(service.Person{}))
+
+	dog := service.Dog{Name: "Daeng"}
+	person := service.Person{Name: "Sompong"}
+	service.MakeSound(dog)
+	service.MakeSound(person)
+	service.TakeAWalk(dog)
+	service.TakeAWalk(person)
 }
 
 func exampleSlice() {
