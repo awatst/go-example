@@ -3,7 +3,7 @@ package service
 import (
 	"fmt"
 
-	"github.com/awatst/go-example/internal/internalService"
+	"github.com/awatst/go-example/service/internal/internalService"
 )
 
 func callInternalService() {
