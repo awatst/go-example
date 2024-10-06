@@ -8,11 +8,12 @@ import (
 )
 
 type Student struct {
-	Name    string
-	Weight  int
-	Height  int
-	Grade   string
-	Address Address
+	Name     string
+	LastName string
+	Weight   int
+	Height   int
+	Grade    string
+	Address  Address
 }
 
 type Address struct {
@@ -31,6 +32,9 @@ func main() {
 	exampleSlice()
 	exampleMap()
 	exampleStruct()
+
+	studentFullName := Student{Name: "John", LastName: "Snow"}
+	fmt.Println("FullName: ", studentFullName.exampleMethod())
 }
 
 func exampleSlice() {
@@ -134,4 +138,8 @@ func exampleStruct() {
 	for key, val := range studentMap {
 		fmt.Printf("Id: %s, Name: %s, Height: %d, Weight: %d, Grade: %s \n", key, val.Name, val.Height, val.Weight, val.Grade)
 	}
+}
+
+func (s Student) exampleMethod() string {
+	return s.Name + " " + s.LastName
 }
