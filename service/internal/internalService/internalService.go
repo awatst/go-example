@@ -1,4 +1,4 @@
-package internalservice
+package internalService
 
 import "fmt"
 
